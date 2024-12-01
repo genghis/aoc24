@@ -4,7 +4,7 @@ list1 = []
 list2 = []
 
 for i in dataset:
-    item1, item2 = i.split('   ')
+    item1, item2 = i.split()
     list1.append(int(item1.strip()))
     list2.append(int(item2.strip()))
     
