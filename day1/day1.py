@@ -1,8 +1,9 @@
-data = open('input.txt').readlines()
+from aocd import get_data
+dataset = get_data(day=1, year=2024).splitlines()
 list1 = []
 list2 = []
 
-for i in data:
+for i in dataset:
     item1, item2 = i.split('   ')
     list1.append(int(item1.strip()))
     list2.append(int(item2.strip()))
