@@ -15,7 +15,7 @@ def handler(part):
                 if safecheck(newreport):
                     safe += 1
                     break
-    print(safe)
+    return safe
     
 def safecheck(report):
     safechecklist = [x[0]-x[1] for x in zip(report[0::],report[1::])]
@@ -25,5 +25,5 @@ def safecheck(report):
         return 0
 
 if __name__ == "__main__":
-    handler(1) #runs part 1
-    handler(2) #runs part 2
+    print("Part One: " + str(handler(1))) #runs part 1
+    print("Part Two: " + str(handler(2))) #runs part 2
