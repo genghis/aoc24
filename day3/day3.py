@@ -1,13 +1,11 @@
 from aocd import get_data
 import re
 dataset = get_data(day=3, year=2024)
-multmatch = re.compile(r'(?:mul\()\d{1,3}[,]\d{1,3}\)')
+multmatch = re.compile(r'mul\(\d{1,3},\d{1,3}\)')
 
 def part1():
     instructions = multmatch.findall(dataset)
-    count = 0
-    count += chop_and_mult(instructions)
-    return count
+    return chop_and_mult(instructions)
 
 def part2():
     count = 0
