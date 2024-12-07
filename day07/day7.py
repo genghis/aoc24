@@ -15,8 +15,7 @@ def evaluate(preceding, numbers, concats):
 def handler(concats):
     count = 0
     for i in dataset:
-        test_value, equation = i.split(": ")
-        test_value = int(test_value)
+        test_value, equation = [int(x) if i == 0 else x for i, x in enumerate(i.split(": "))]
         numbers = [int(x) for x in equation.split()]
         results = evaluate([numbers[0]], numbers[1:], concats)
         if test_value in results:
