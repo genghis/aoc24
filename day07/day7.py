@@ -12,28 +12,17 @@ def evaluate(preceding, numbers, concats):
         return evaluate(results, numbers[1:], concats) 
     return results
 
-def part1():
+def handler(concats):
     count = 0
     for i in dataset:
         test_value, equation = i.split(": ")
         test_value = int(test_value)
         numbers = [int(x) for x in equation.split()]
-        results = evaluate([numbers[0]], numbers[1:], False)
-        if test_value in results:
-            count += test_value
-    return count
-
-def part2():
-    count = 0
-    for i in dataset:
-        test_value, equation = i.split(": ")
-        test_value = int(test_value)
-        numbers = [int(x) for x in equation.split()]
-        results = evaluate([numbers[0]], numbers[1:], True)
+        results = evaluate([numbers[0]], numbers[1:], concats)
         if test_value in results:
             count += test_value
     return count
 
 if __name__ == "__main__":
-    print(f'Part 1: {part1()}')
-    print(f'Part 2: {part2()}')
+    print(f'Part 1: {handler(False)}')
+    print(f'Part 2: {handler(True)}')
