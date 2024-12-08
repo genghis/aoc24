@@ -35,18 +35,12 @@ def get_antinodes(locs, part):
                     antinodes.add((currenty, currentx))
     return antinodes
 
-def part1():
+def handler(part):
     antinodes = set()
     for frequency in locations:
-        antinodes.update(get_antinodes(locations[frequency], 1))
-    return len(antinodes)
-
-def part2():
-    antinodes = set()
-    for frequency in locations:
-        antinodes.update(get_antinodes(locations[frequency], 2))
+        antinodes.update(get_antinodes(locations[frequency], part))
     return len(antinodes)
 
 if __name__ == "__main__":
-    print(f'Part 1: {part1()}')
-    print(f'Part 2: {part2()}')
+    print(f'Part 1: {handler(1)}')
+    print(f'Part 2: {handler(2)}')
