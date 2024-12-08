@@ -1,6 +1,4 @@
 from aocd import get_data
-from itertools import permutations
-from pprint import pprint
 
 dataset = get_data(day=8, year=2024).splitlines()
 
