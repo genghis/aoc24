@@ -1,5 +1,4 @@
 from aocd import get_data
-
 dataset = get_data(day=8, year=2024).splitlines()
 
 locations = {}
@@ -9,11 +8,10 @@ xbound = len(dataset[0])-1
 for indy, row in enumerate(dataset):
     for indx, cha in enumerate(row):
         position = (indy, indx)
-        if cha != '.':
-            if cha not in locations:
-                locations[cha] = [position,]
-            else: 
-                locations[cha].append(position)
+        if cha != '.' and cha not in locations:
+            locations[cha] = [position,]
+        elif cha != '.': 
+            locations[cha].append(position)
 
 def get_antinodes(locs, part):
     antinodes = set()
@@ -21,8 +19,7 @@ def get_antinodes(locs, part):
         for loc2 in [x for x in locs if x != loc1]:
             ychange = loc1[0]-loc2[0]
             xchange = loc1[1]-loc2[1]
-            currenty = loc1[0]
-            currentx = loc1[1]
+            currenty,currentx = loc1[0], loc1[1]
             if part == 2:
                 while 0 <= currenty <= ybound and 0 <= currentx <= xbound:
                     antinodes.add((currenty, currentx))
