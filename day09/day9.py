@@ -36,15 +36,10 @@ def file_rearranger(disklist):
     return count
 
 def part1():
-    total = 0
-    calclist = rearranger(diskmap)
-    print(diskmap)
-    print(''.join(calclist))
-    for ind, value in enumerate(calclist):
-        if value != '.':
-            # print(int(value)*ind)
-            total += int(value)*ind
-    return total
+    return rearranger(diskmap)
+
+def part2():
+    return file_rearranger(diskmap)
 
 if __name__ == "__main__":
     print(f"Part 1: {part1()}")
